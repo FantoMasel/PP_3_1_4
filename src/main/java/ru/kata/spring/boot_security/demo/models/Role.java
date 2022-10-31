@@ -18,7 +18,7 @@ public class Role implements Serializable, GrantedAuthority {
     @UniqueElements
     @Column(name = "role_name", unique = true)
     private String roleName;
-    @ManyToMany(mappedBy = "roleSet", fetch = FetchType.LAZY)
+    @Transient
     Set<User> userSet;
 
     public Role() {

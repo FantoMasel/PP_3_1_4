@@ -12,7 +12,8 @@ public class UserRepositoryImpl implements UserRepository{
     EntityManager entityManager;
     @Override
     public List<User> getAllUsers() {
-        return entityManager.createQuery("FROM User").getResultList();
+        return entityManager.createQuery("FROM User")
+                .getResultList();
     }
 
     @Override
