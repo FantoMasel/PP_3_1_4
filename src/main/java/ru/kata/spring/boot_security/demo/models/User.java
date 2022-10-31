@@ -31,7 +31,7 @@ public class User implements Serializable, UserDetails {
     @NotNull(message = "Отсутствует пороль")
     @Column(name = "password")
     private String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
@@ -133,6 +133,17 @@ public class User implements Serializable, UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String rolesToString() {
+        StringBuilder roleNames = new StringBuilder();
+        for (Role role : getRoleSet()) {
+            roleNames.append(role.getRoleName())
+                    .append(", ");
+        }
+        return roleNames.toString()
+                .replaceAll(", $", "")
+                .replaceAll("ROLE_", "");
     }
 
 }
