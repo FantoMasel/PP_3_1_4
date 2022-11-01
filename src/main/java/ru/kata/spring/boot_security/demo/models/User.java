@@ -31,7 +31,7 @@ public class User implements Serializable, UserDetails {
     @NotNull(message = "Отсутствует пороль")
     @Column(name = "password")
     private String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}

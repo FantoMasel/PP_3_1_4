@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "roles")
@@ -18,8 +17,6 @@ public class Role implements Serializable, GrantedAuthority {
     @UniqueElements
     @Column(name = "role_name", unique = true)
     private String roleName;
-    @Transient
-    Set<User> userSet;
 
     public Role() {
 
@@ -45,13 +42,6 @@ public class Role implements Serializable, GrantedAuthority {
         this.roleName = roleName;
     }
 
-    public Set<User> getUserSet() {
-        return userSet;
-    }
-
-    public void setUserSet(Set<User> userSet) {
-        this.userSet = userSet;
-    }
 
     @Override
     public String getAuthority() {
