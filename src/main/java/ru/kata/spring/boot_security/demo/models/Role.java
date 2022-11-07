@@ -52,8 +52,4 @@ public class Role implements Serializable, GrantedAuthority {
     public String toString() {
         return this.getRoleName();
     }
-
-    public String roleNameToString() {
-        return roleName.replaceAll("ROLE_", "");
-    }
 }

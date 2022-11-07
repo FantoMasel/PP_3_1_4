@@ -3,17 +3,17 @@ $(document).on('click', '#submit-edit', async function () {
 
     const formData = new FormData(formEdit);
     const object = {
-        roleSet:[]
+        roleSet: []
     };
 
     formData.forEach((value, key) => {
-        if (key === "rolesId"){
+        if (key === "rolesId") {
 
             const roleId = value.split(" ")[0];
             const roleName = value.split(" ")[1];
             const role = {
-                id : roleId,
-                name : "ROLE_" + roleName
+                id: roleId,
+                name: "ROLE_" + roleName
             };
             object.roleSet.push(role);
         } else {

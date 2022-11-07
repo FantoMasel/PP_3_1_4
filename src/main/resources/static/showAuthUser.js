@@ -14,8 +14,8 @@ async function showAuthUser() {
         let userRoles = "";
         data.roleSet.forEach((role) => {
             userRoles = userRoles + role.roleName.split("_")[1] + " ";
-        const placement = document.getElementById("authUserPanel")
-        placement.innerHTML = "";
+            const placement = document.getElementById("authUserPanel")
+            placement.innerHTML = "";
 
 
             const element = document.createElement("tr");
